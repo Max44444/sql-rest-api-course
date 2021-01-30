@@ -27,5 +27,15 @@ module.exports = {
     } catch (error) {
       throw new Error('Id is required')
     }
+  },
+  async deleteTodo({ id }) {
+    try {
+      const todo = await Todo.findByPk(id)
+      await todo.destroy();
+      return true
+    } catch (error) {
+      throw new Error('Id is required')
+      return false
+    }
   }
 }
