@@ -7,5 +7,15 @@ module.exports = {
     } catch (error) {
       throw new Error('fetch todos is not awailable')
     }
+  },
+  async createTodo({ todo }) {
+    try {
+      return await Todo.create({
+        title: todo.title,
+        done: false
+      })
+    } catch (error) {
+      throw new Error('Title is required')
+    }
   }
 }
